@@ -1,0 +1,16 @@
+nsworkshop --list (by default list all workshops)
+nsworkshop --list --installed
+nsworkshop --list --notinstalled
+
+
+nsworkshop --search pattern (exact name or fuzzy search, by default it look inside all workshops)
+nsworkshop --search pattern --installed
+nsworkshop --search pattern --notinstalled
+
+nsworkshop --install pattern 
+nsworkshop --install  --search pattern (to install multiple workshops that match the pattern)
+
+nsworkshop --remove pattern 
+nsworkshop --remove  --search pattern (to remove multiple workshops that match the pattern)
+
+

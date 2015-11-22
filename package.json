@@ -1,0 +1,20 @@
+{
+  "name": "nodeschool-workshops",
+  "version": "1.0.0",
+  "description": "a list of all nodeschool workshops",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ham ism <ismnoiet@gmail.com>",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "nsworkshops": "index.js"
+  },
+  "dependencies": {
+    "fuse.js": "^1.3.0",
+    "fuzzy": "^0.1.1",
+    "lodash": "^3.10.1",
+    "minimist": "^1.2.0"
+  }
+}
