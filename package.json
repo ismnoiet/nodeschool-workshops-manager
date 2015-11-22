@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "a list of all nodeschool workshops",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
   "author": "ham ism <ismnoiet@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git://github.com/ismnoiet/nodeschool-workshops-manager.git"
   },
-  "bugs":{
-    "url":"git://github.com/ismnoiet/nodeschool-workshops-manager.git"
+  "bugs": {
+    "url": "git://github.com/ismnoiet/nodeschool-workshops-manager.git"
   },
   "license": "ISC",
   "preferGlobal": true,
@@ -24,10 +24,13 @@
     "lodash": "^3.10.1",
     "minimist": "^1.2.0"
   },
-  "keywords":[
+  "keywords": [
     "nodeschool",
     "manager",
     "workshop",
     "nodeschool-manager"
-  ]
+  ],
+  "devDependencies": {
+    "standard": "^5.4.1"
+  }
 }
