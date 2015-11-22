@@ -10,7 +10,7 @@ This package is under developement and any idea of feature request is more then 
 
 
 ### How to install it ?
-``[sudo] npm install -g nsworkshops``
+``[sudo] npm install -g nodeschool-workshops``
 
 [sudo] : Depending on your configuration, you may need to be an administrator in order to install npm packages
 
