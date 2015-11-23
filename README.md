@@ -4,7 +4,7 @@ you can search,install and remove workshop(s) with just one or two line of code 
 and searching manually for desired workshops.
 
 
-##Very important
+## Very important
 This package is under developement and any idea of feature request is more then welcomed
 
 
@@ -53,6 +53,13 @@ Remove a list of module that contains a set of  specific characters:
 
 `nsworkshops --remove --search PATTERN`
 
+## How to contribute ?
+You are interested and want to contribute? Good decision BUT you have to consider the following rules(or convensions if you will):
+
+1. Fork the repository  
+2. Use [standard-format](https://www.npmjs.com/package/standard-format) to format your code. If you are using Sublime Text here is a nice [plugin](https://packagecontrol.io/packages/StandardFormat) that can help you with standard-format.
+3. Issue a PR  after ensuring that your code is respecting standard-format, otherwise your PR will be rejected.  
+
 
 ####TODO :
-Add  Documentation for `--install` & `--remove (TODO)` are available and can be used, the documentation of this part is "on the road" and will be accessible soon.
+`--install` & `--remove` cammands are available and can be used, the documentation of this part is "on the road" and will be accessible soon.
