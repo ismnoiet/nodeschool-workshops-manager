@@ -21,8 +21,9 @@ This package is under developement and any idea of feature request is more then 
 By default, this command list all the workshops(installed + not installed ones).
 You can add the `--installed` or `--notinstalled` flags to fetch only installed or not installed workshops respectively
 #####Examples
-`nsworkshops --list --installed  //to list only installed workshops
- nsworkshops --list --notinstalled  //to list only not installed workshops`
+`nsworkshops --list --installed  //to list only installed workshops` 
+
+`nsworkshops --list --notinstalled  //to list only not installed workshops`
 
 #### Search for workshops
 ``nsworkshops --search PATTERN``
