@@ -63,4 +63,4 @@ You are interested and want to contribute? Good decision BUT you have to conside
 
 
 ####TODO :
-`--install` & `--remove` cammands are available and can be used, the documentation of this part is "on the road" and will be accessible soon.
+`--install` & `--remove` commands are available and can be used, the documentation of this part is "on the road" and will be accessible soon.
