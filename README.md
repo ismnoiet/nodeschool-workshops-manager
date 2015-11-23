@@ -31,7 +31,7 @@ You can add the `--installed` or `--notinstalled` flags to fetch only installed 
 ``PATTERN`` is the workshop name(or some characters from the workshop name), you should know that fuzzy search is used here.
 By default, this command search for both installed & not installed workshops, the returned result can be a workshop name or an array of workshop names
 
-**Note : ** as always we can use the `--installed` and `--notinstalled` flags to limit the returned result.
+**Note :** as always we can use the `--installed` and `--notinstalled` flags to limit the returned result.
 
 #####Examples
 `nsworkshops --search javascript --installed  //search for an installed workshop called 'javascript'`
