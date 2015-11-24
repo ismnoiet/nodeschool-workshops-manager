@@ -1,6 +1,6 @@
 {
   "name": "nodeschool-workshops",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "description": "a list of all nodeschool workshops",
   "scripts": {
     "test": "standard"
