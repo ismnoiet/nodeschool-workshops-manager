@@ -44,6 +44,8 @@ By default, this command search for both installed & not installed workshops, th
 
 `nsworkshops --install --search PATTERN`
 
+`nsworkshops --install --notinstalled`
+
 
 #### Remove workshops
 remove a single workshop(we can use npm remove -g WORKSHOPNAME instead):
@@ -53,6 +55,8 @@ remove a single workshop(we can use npm remove -g WORKSHOPNAME instead):
 Remove a list of module that contains a set of  specific characters:
 
 `nsworkshops --remove --search PATTERN`
+
+`nsworkshops --remove --installed`
 
 ## How to contribute ?
 You are interested and want to contribute? Good decision BUT you have to consider the following rules(or convensions if you will):

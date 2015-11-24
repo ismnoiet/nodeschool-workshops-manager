@@ -4,13 +4,11 @@ var fs = require('fs'),
   childProcess = require('child_process'),
   minimist = require('minimist'),
   workshops = require('./workshops.js'),
-  checkNpm = require('./check-npm.js')
-
-var allPackages = workshops.getAll(),
-  args = minimist(process.argv)
-
-allInstallCommands = workshops.getInstallCommands()
-var installedList = checkNpm.installedList(allInstallCommands)
+  checkNpm = require('./check-npm.js'),
+  args = minimist(process.argv),
+  allInstallCommands = workshops.getInstallCommands(),
+  installedList = checkNpm.installedList(allInstallCommands),
+  notInstalledList = checkNpm.notInstalledList(allInstallCommands)
 
 var indexes = [], i = 0
 for (attr in args) {
@@ -21,7 +19,6 @@ for (attr in args) {
 function install (moduleName) {
   // check if it is a module or a list of modules 
   var command = ''
-  console.log('type is : ' + typeof (moduleName))
   if (typeof (moduleName) === 'string') {
     command = 'sudo npm install -g ' + moduleName
   } else if ((typeof (moduleName) !== 'boolean') && (moduleName.length !== 0)) {
@@ -57,10 +54,9 @@ function remove (moduleName) {
   })
 }
 
-console.log(indexes[1])
-
 switch (indexes[1]) {
   case 'list':
+
     if (args.installed) {
       // console.log('display installed list ');   
       displayList(allInstallCommands, 'install', ['You have', 'nodeschool workshops installed'])
@@ -98,7 +94,7 @@ switch (indexes[1]) {
         } else {
           // if it does exist   and not installed, then install 
           // here we get the the install phase
-          console.log('the module exists and is ready to be installed')
+          console.log('the module "' + installPattern + '" exists and is ready to be installed')
           console.log('-------------------------------------------------')
           // install the module asynchronously
           install(installPattern)
@@ -111,7 +107,7 @@ switch (indexes[1]) {
     } else if (installPattern === true) {
       if (typeof (args.search) === 'boolean') {
         console.log('Please, provide the name of the workshop after --search ')
-      } else {
+      } else if (typeof (args.search) === 'string') {
         // you want to install a group of workshops that match a regex 
         var searchPattern = args.search
         // retrieved list contains  both installed and not installed workshops
@@ -120,7 +116,13 @@ switch (indexes[1]) {
 
         console.log('you are about to install the following ' + retrievedElements.length + ' workshops:')
         console.log('---------------------------------------------------------------')
+        console.log(display(retrievedElements))
         install(retrievedElements)
+      } else if (typeof (args.notinstalled) === 'boolean') {
+        console.log('You are about to install the all the workshops that are not already installed:  ')
+        console.log('---------------------------------------------------------------')
+        console.log(display(notInstalledList))
+        install(notInstalledList)
       }
 
     // console.log('Please, provide the name of the workshop after --install ')
@@ -130,21 +132,22 @@ switch (indexes[1]) {
 
     var removePattern = args.remove
     if (typeof (removePattern) === 'string') {
-      // search for the workshop in our  instaled list             
-      var moduleExists = checkNpm.isModule(installed, installPattern)
-
+      // search for the workshop in our  installed list                   
+      var moduleExists = checkNpm.isModule(installedList, removePattern)
       // if it exists 
       if (moduleExists) {
         // module exists and can be removed,
+        console.log('the module "' + removePattern + '" is ready to be removed ')
+        console.log('---------------------------------------------------------------')
         remove(removePattern)
       } else {
         // module doesn't exist in our db 
-        console.log('Sorry, this workshop( ' + installPattern + ' ) doesnt exist')
+        console.log('Sorry, this workshop( ' + removePattern + ' ) doesnt exist')
       }
     } else if (removePattern === true) {
       if (typeof (args.search) === 'boolean') {
         console.log('Please, provide the name of the workshop after --search ')
-      } else {
+      } else if (typeof (args.search) === 'string') {
         // you want to remove a group of workshops that match a regex 
         removePattern = args.search
         // retrieved list contains  just installed workshops
@@ -154,6 +157,11 @@ switch (indexes[1]) {
         console.log('---------------------------------------------------------------')
         console.log(display(retrievedElements))
         remove(retrievedElements)
+      } else if (typeof (args.installed) === 'boolean') {
+        console.log('you are about to remove the following ' + installedList.length + ' workshops:')
+        console.log('---------------------------------------------------------------')
+        console.log(display(installedList))
+        remove(installedList)
       }
     }
     break
@@ -168,6 +176,6 @@ function display (list) {
 function displayList (list, type, message) {
   var retrievedList = (type == '') ? list : checkNpm[(type == 'install') ? 'installedList' : 'notInstalledList'](list)
   console.log(message[0] + ' ' + retrievedList.length + ' ' + message[1])
-  console.log('-------------------------------------------------')
+  console.log('---------------------------------------------------------------')
   console.log(display(retrievedList) + '\n')
 }
