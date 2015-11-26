@@ -50,7 +50,7 @@ By default, this command search for both installed & not installed workshops, th
  nsworkshops --search javascript --installed  //search for an installed workshop called 'javascript'
 ```
 ```
- nsworkshops --search js  --notinstalled //to list all workshops that contains js and are not aleardy installed`
+ nsworkshops --search js  --notinstalled //list all workshops that contains js and are not aleardy installed`
 ```
 
 #### Install workshops
