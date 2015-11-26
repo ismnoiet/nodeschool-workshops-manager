@@ -10,7 +10,9 @@ This package is under developement and any idea of feature request is more then 
 
 
 ### How to install it ?
-``[sudo] npm install -g nodeschool-workshops``
+```
+ [sudo] npm install -g nodeschool-workshops
+```
 
 [sudo] : Depending on your configuration, you may need to be an administrator in order to install npm packages
 
@@ -21,12 +23,19 @@ This package is under developement and any idea of feature request is more then 
 By default, this command list all the workshops(installed + not installed ones).
 You can add the `--installed` or `--notinstalled` flags to fetch only installed or not installed workshops respectively
 #####Examples
-`nsworkshops --list --installed  //to list only installed workshops` 
 
-`nsworkshops --list --notinstalled  //to list only not installed workshops`
+```
+ nsworkshops --list --installed  //to list only installed workshops
+ ``` 
+
+```
+ nsworkshops --list --notinstalled  //to list only not installed workshops
+```
 
 #### Search for workshops
-``nsworkshops --search PATTERN``
+```
+ nsworkshops --search PATTERN
+```
 
 ``PATTERN`` is the workshop name(or some characters from the workshop name), you should know that fuzzy search is used here.
 By default, this command search for both installed & not installed workshops, the returned result can be a workshop name or an array of workshop names
@@ -34,6 +43,7 @@ By default, this command search for both installed & not installed workshops, th
 **Note :** as always we can use the `--installed` and `--notinstalled` flags to limit the returned result.
 
 #####Examples
+
 `nsworkshops --search javascript --installed  //search for an installed workshop called 'javascript'`
 
  `nsworkshops --search js  --notinstalled //to list all workshops that contains js and are not aleardy installed`
