@@ -5,7 +5,7 @@ and searching manually for desired workshops.
 
 
 ## Very important
-This package is under developement and any idea of feature request is more then welcomed
+This package is under developement and any idea or feature request is more then welcomed
 
 
 
