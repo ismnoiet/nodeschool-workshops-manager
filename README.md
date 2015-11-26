@@ -18,7 +18,9 @@ This package is under developement and any idea of feature request is more then 
 
 ### How to use it ?
 #### List all workshops
-``nsworkshops --list``
+```
+ nsworkshops --list
+```
 
 By default, this command list all the workshops(installed + not installed ones).
 You can add the `--installed` or `--notinstalled` flags to fetch only installed or not installed workshops respectively
@@ -44,29 +46,44 @@ By default, this command search for both installed & not installed workshops, th
 
 #####Examples
 
-`nsworkshops --search javascript --installed  //search for an installed workshop called 'javascript'`
-
- `nsworkshops --search js  --notinstalled //to list all workshops that contains js and are not aleardy installed`
+```
+ nsworkshops --search javascript --installed  //search for an installed workshop called 'javascript'
+```
+```
+ nsworkshops --search js  --notinstalled //to list all workshops that contains js and are not aleardy installed`
+```
 
 #### Install workshops
 
-`nsworkshops --install WORKSHOPNAME`
+```
+ nsworkshops --install WORKSHOPNAME
+```
 
-`nsworkshops --install --search PATTERN`
+```
+ nsworkshops --install --search PATTERN
+```
 
-`nsworkshops --install --notinstalled`
+```
+ nsworkshops --install --notinstalled
+```
 
 
 #### Remove workshops
 remove a single workshop(we can use npm remove -g WORKSHOPNAME instead):
 
-`nsworkshops --remove WORKSHOPNAME`
+```
+ nsworkshops --remove WORKSHOPNAME
+```
 
 Remove a list of module that contains a set of  specific characters:
 
-`nsworkshops --remove --search PATTERN`
+```
+ nsworkshops --remove --search PATTERN
+```
 
-`nsworkshops --remove --installed`
+```
+ nsworkshops --remove --installed
+```
 
 ## How to contribute ?
 You are interested and want to contribute? Good decision BUT you have to consider the following rules(or convensions if you will):
