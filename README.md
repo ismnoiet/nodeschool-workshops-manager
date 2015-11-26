@@ -24,7 +24,7 @@ This package is under developement and any idea of feature request is more then 
 
 By default, this command list all the workshops(installed + not installed ones).
 You can add the `--installed` or `--notinstalled` flags to fetch only installed or not installed workshops respectively
-#####Examples
+##### Examples
 
 ```
  nsworkshops --list --installed  //to list only installed workshops
@@ -44,7 +44,7 @@ By default, this command search for both installed & not installed workshops, th
 
 **Note :** as always we can use the `--installed` and `--notinstalled` flags to limit the returned result.
 
-#####Examples
+##### Examples
 
 ```
  nsworkshops --search javascript --installed  //search for an installed workshop called 'javascript'
@@ -93,5 +93,5 @@ You are interested and want to contribute? Good decision BUT you have to conside
 3. Issue a PR  after ensuring that your code is respecting standard-format, otherwise your PR will be rejected.  
 
 
-####TODO :
+#### TODO :
 `--install` & `--remove` commands are available and can be used, the documentation of this part is "on the road" and will be accessible soon.
