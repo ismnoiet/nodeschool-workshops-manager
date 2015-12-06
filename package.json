@@ -1,7 +1,7 @@
 {
   "name": "nodeschool-workshops",
-  "version": "0.0.3",
-  "description": "a list of all nodeschool workshops",
+  "version": "0.0.4",
+  "description": "Install,Remove and Search for  nodeschool workshops without leaving the Terminal ",
   "scripts": {
     "test": "standard"
   },
