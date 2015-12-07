@@ -16,36 +16,22 @@ for (attr in args) {
   i++
 }
 
-function install (moduleName) {
-  // check if it is a module or a list of modules 
-  var command = ''
+function executeOperation (operation, moduleName) {
+  var operation = (operation == 'install') ? 'install' : 'remove',
+    command = 'sudo npm ' + operation + ' -g '
+
   if (typeof (moduleName) === 'string') {
-    command = 'sudo npm install -g ' + moduleName
+    command += moduleName
   } else if ((typeof (moduleName) !== 'boolean') && (moduleName.length !== 0)) {
-    command = 'sudo npm install -g ' + moduleName.join(' ')
-  } else {
-    console.log('No workshop to be installed')
+    command += moduleName.join(' ')
   }
+  // we can add else here to display message when there is nothing to show
 
-  // console.log(command)
+  handleInstallRemoveOutput(command)
 
-  childProcess.exec(command, function (err, stdout, stderr) {
-    if (err) {
-      throw err
-    }
-    console.log(stdout)
-  })
 }
 
-function remove (moduleName) {
-  // check if it is a module or a list of modules 
-  var command = ''
-  if (typeof (moduleName) === 'string') {
-    command = 'sudo npm remove -g ' + moduleName
-  } else if ((typeof (moduleName) !== 'boolean') && (moduleName.length !== 0)) {
-    command = 'sudo npm remove -g ' + moduleName.join(' ')
-  }
-
+function handleInstallRemoveOutput (command) {
   childProcess.exec(command, function (err, stdout, stderr) {
     if (err) {
       throw err
@@ -97,7 +83,7 @@ switch (indexes[1]) {
           console.log('the module "' + installPattern + '" exists and is ready to be installed')
           console.log('-------------------------------------------------')
           // install the module asynchronously
-          install(installPattern)
+          executeOperation('install', installPattern)
         }
       } else {
         // module doesn't exist in our db 
@@ -117,12 +103,12 @@ switch (indexes[1]) {
         console.log('you are about to install the following ' + retrievedElements.length + ' workshops:')
         console.log('---------------------------------------------------------------')
         console.log(display(retrievedElements))
-        install(retrievedElements)
+        executeOperation('install', retrievedElements)
       } else if (typeof (args.notinstalled) === 'boolean') {
         console.log('You are about to install the all the workshops that are not already installed:  ')
         console.log('---------------------------------------------------------------')
         console.log(display(notInstalledList))
-        install(notInstalledList)
+        executeOperation('install', notInstalledList)
       }
 
     // console.log('Please, provide the name of the workshop after --install ')
@@ -139,7 +125,7 @@ switch (indexes[1]) {
         // module exists and can be removed,
         console.log('the module "' + removePattern + '" is ready to be removed ')
         console.log('---------------------------------------------------------------')
-        remove(removePattern)
+        executeOperation('remove', removePattern)
       } else {
         // module doesn't exist in our db 
         console.log('Sorry, this workshop( ' + removePattern + ' ) doesnt exist')
@@ -156,12 +142,12 @@ switch (indexes[1]) {
         console.log('you are about to remove the following ' + retrievedElements.length + ' workshops:')
         console.log('---------------------------------------------------------------')
         console.log(display(retrievedElements))
-        remove(retrievedElements)
+        executeOperation('remove', retrievedElements)
       } else if (typeof (args.installed) === 'boolean') {
         console.log('you are about to remove the following ' + installedList.length + ' workshops:')
         console.log('---------------------------------------------------------------')
         console.log(display(installedList))
-        remove(installedList)
+        executeOperation('remove', installedList)
       }
     }
     break
