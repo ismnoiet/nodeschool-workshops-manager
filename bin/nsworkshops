@@ -3,7 +3,7 @@
 var fs = require('fs'),
   childProcess = require('child_process'),
   minimist = require('minimist'),
-  workshops = require('./workshops.js'),
+  workshops = require('../data/workshops.js'),
   checkNpm = require('./check-npm.js'),
   args = minimist(process.argv),
   allInstallCommands = workshops.getInstallCommands(),
