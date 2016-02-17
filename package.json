@@ -16,7 +16,7 @@
   "license": "ISC",
   "preferGlobal": true,
   "bin": {
-    "nsworkshops": "index.js"
+    "nsworkshops": "./bin/nsworkshops"
   },
   "dependencies": {
     "fuse.js": "^1.3.0",
