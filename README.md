@@ -19,11 +19,11 @@ This package is under developement and any idea or feature request is more then 
 ### How to use it ?
 #### List all workshops
 ```
- nsworkshops --list
+ nsworkshops list
 ```
 
 By default, this command list all the workshops(installed + not installed ones).
-You can add the `--installed` or `--notinstalled` flags to fetch only installed or not installed workshops respectively
+You can add the `-i or --installed` or `-n or --notinstalled` flags to fetch only installed or not installed workshops respectively.
 ##### Examples
 
 ```
