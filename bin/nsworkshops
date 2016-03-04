@@ -131,3 +131,7 @@ function displayList (list, type, message) {
   console.log('---------------------------------------------------------------')
   console.log(display(retrievedList) + '\n')
 }
+
+if (!program.args.length) {
+  program.help()
+} 
