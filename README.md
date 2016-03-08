@@ -3,12 +3,6 @@ A nodejs package that allows you to manage all the nodeschool workshops from  yo
 you can search,install and remove workshop(s) with just one or two line of code in your terminal without going on the internet
 and searching manually for desired workshops.
 
-
-## Very important
-This package is under developement and any idea or feature request is more then welcomed
-
-
-
 ### How to install it ?
 ```
  [sudo] npm install -g nodeschool-workshops
@@ -17,81 +11,81 @@ This package is under developement and any idea or feature request is more then 
 [sudo] : Depending on your configuration, you may need to be an administrator in order to install npm packages
 
 ### How to use it ?
+
 #### List all workshops
 ```
  nsworkshops list
 ```
 
 By default, this command list all the workshops(installed + not installed ones).
-You can add the `-i or --installed` or `-n or --notinstalled` flags to fetch only installed or not installed workshops respectively.
+You can add the ``-i``(aka ``--installed``)  or ``-n``(aka ``--notinstalled``) flags to fetch only installed or not installed workshops respectively.
 ##### Examples
 
 ```
- nsworkshops --list --installed  //to list only installed workshops
+# to list only installed workshops:
+ nsworkshops list -i  
  ``` 
 
 ```
- nsworkshops --list --notinstalled  //to list only not installed workshops
+# to list only not installed workshops:
+ nsworkshops list -n  
 ```
 
 #### Search for workshops
 ```
- nsworkshops --search PATTERN
+ nsworkshops search PATTERN
 ```
 
 ``PATTERN`` is the workshop name(or some characters from the workshop name), you should know that fuzzy search is used here.
 By default, this command search for both installed & not installed workshops, the returned result can be a workshop name or an array of workshop names
 
-**Note :** as always we can use the `--installed` and `--notinstalled` flags to limit the returned result.
+**Note :** as always we can use the `-i` and `-n` flags to limit the returned result.
 
 ##### Examples
 
 ```
- nsworkshops --search javascript --installed  //search for an installed workshop called 'javascript'
+# search for installed workshops containing 'javascript':
+ nsworkshops search javascript -i  
 ```
+
 ```
- nsworkshops --search js  --notinstalled //list all workshops that contains js and are not aleardy installed`
+# search for all workshops that contains 'js' and are not already installed:
+ nsworkshops search js  -n 
 ```
 
 #### Install workshops
 
 ```
- nsworkshops --install WORKSHOPNAME
+ nsworkshops install PATTERN  
 ```
 
 ```
- nsworkshops --install --search PATTERN
-```
-
-```
- nsworkshops --install --notinstalled
+# Install the remaining workshops:
+ nsworkshops install -n 
 ```
 
 
 #### Remove workshops
-remove a single workshop(we can use npm remove -g WORKSHOPNAME instead):
+
+Remove a list of workshops that contains ``PATTERN`` as a substring or a single workshop if the full name is specified:
 
 ```
- nsworkshops --remove WORKSHOPNAME
-```
-
-Remove a list of module that contains a set of  specific characters:
-
-```
- nsworkshops --remove --search PATTERN
+ nsworkshops remove PATTERN
 ```
 
 ```
- nsworkshops --remove --installed
+# Remove installed workshops
+ nsworkshops remove -i
 ```
 
 ## How to contribute ?
 You are interested and want to contribute? Good decision BUT you have to consider the following rules(or convensions if you will):
 
-1. Fork the repository  
+1. Fork this repository.
 2. Use [standard-format](https://www.npmjs.com/package/standard-format) to format your code. If you are using Sublime Text here is a nice [plugin](https://packagecontrol.io/packages/StandardFormat) that can help you with standard-format.
 3. Issue a PR  after ensuring that your code is respecting standard-format, otherwise your PR will be rejected.  
 
 
 #### TODO :
-`--install` & `--remove` commands are available and can be used, the documentation of this part is "on the road" and will be accessible soon.
+* Add other options !
+
