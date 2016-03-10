@@ -85,7 +85,6 @@ You are interested and want to contribute? Good decision BUT you have to conside
 2. Use [standard-format](https://www.npmjs.com/package/standard-format) to format your code. If you are using Sublime Text here is a nice [plugin](https://packagecontrol.io/packages/StandardFormat) that can help you with standard-format.
 3. Issue a PR  after ensuring that your code is respecting standard-format, otherwise your PR will be rejected.  
 
-
 #### TODO :
-* Add other options !
+* Improve documentation.
 

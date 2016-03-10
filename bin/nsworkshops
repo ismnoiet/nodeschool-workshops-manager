@@ -44,54 +44,62 @@ program
 
   })
 
+
+
 program
-  .command('install <PATTERN>')
-  .description('- PATTERN is the workshop name(or some characters from the workshop(s) name) to install')
-  .option('-n, --notinstalled', '- Install  the remaining  workshops')
+  .command('install [PATTERN]')
+  .description('- PATTERN is the workshop name(or some characters from the workshop(s) name(s) ) to install')  
+  .option('-n, --notinstalled', '- Install  the remaining  workshops') 
   .action(function (PATTERN, options) {
-    var installPattern = PATTERN
-    var retrievedElements = checkNpm.search(PATTERN, workshops.getInstallCommands())
-    retrievedElements = checkNpm.notInstalledList(retrievedElements)
-    if (option.notinstalled) {
-      // install all the remaining packages
-      console.log('You are about to install the all the workshops that are not already installed:  ')
-      console.log('---------------------------------------------------------------')
-      console.log(display(notInstalledList))
-      executeOperation('install', notInstalledList)
-    }
-    if (!retrievedElements.length) {
-      console.log('Sorry, the workshop/s(' + PATTERN + ") doesnt/don't exist")
-    } else {
+    var installPattern = PATTERN;
+    var retrievedElements = [];
+    
+    if(installPattern){
+      retrievedElements = checkNpm.search(installPattern, notInstalledList);
       console.log('You are about to install the following ' + retrievedElements.length + ' workshops:')
       console.log('---------------------------------------------------------------')
       console.log(display(retrievedElements))
-      executeOperation('install', retrievedElements)
+
+    }else if (options.notinstalled) {
+      // install all the remaining packages
+      retrievedElements = notInstalledList;      
+      console.log('You are about to install the all the workshops('+ notInstalledList.length+') that are not already installed:  ')
+      console.log('------------------------------------------------------------------------------')
+      console.log(display(notInstalledList))
     }
+
+    if (!retrievedElements.length) {
+      console.log('Sorry, the workshop/s(' + installPattern + ") doesnt/don't exist")
+      return;
+    }
+
+    executeOperation('install', retrievedElements)  
   })
 
 program
-  .command('remove <PATTERN>')
+  .command('remove [PATTERN]')
   .description('- PATTERN is the workshop name(or some characters from the workshop(s) name) to remove')
   .option('-i, --installed', 'Remove all the installed workshops')
   .action(function (PATTERN, options) {
     var removePattern = PATTERN
-    var retrievedElements = checkNpm.search(PATTERN, workshops.getInstallCommands())
-    retrievedElements = checkNpm.notInstalledList(retrievedElements)
-    if (option.installed) {
-      // remove all the the installed workshops
-      console.log('you are about to remove following ' + installedList.length + ' workshops:')
-      console.log('---------------------------------------------------------------')
-      console.log(display(installedList))
-      executeOperation('remove', installedList)
-    }
-    if (!retrievedElements.length) {
-      console.log('Sorry, the workshop/s(' + PATTERN + ") doesnt/don't exist")
-    } else {
+    var retrievedElements = [];
+    if(removePattern){
+      retrievedElements = checkNpm.search(removePattern, installedList)
       console.log('You are about to remove the following ' + retrievedElements.length + ' workshops:')
       console.log('---------------------------------------------------------------')
       console.log(display(retrievedElements))
-      executeOperation('remove', retrievedElements)
+    }else if (options.installed) {
+      // remove all the the installed workshops
+      retrievedElements = installedList
+      console.log('you are about to remove the following ' + installedList.length + ' workshops:')
+      console.log('---------------------------------------------------------------')
+      console.log(display(installedList))     
     }
+    if (!retrievedElements.length) {
+      console.log('Sorry, the workshop/s(' + removePattern + ") doesnt/don't exist")
+      return;
+    }
+    executeOperation('remove', retrievedElements);
   })
 
 program.parse(process.argv)
