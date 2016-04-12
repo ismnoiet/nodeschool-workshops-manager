@@ -1,3 +1,5 @@
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 ## NodeSchool Workshops Manager
 A nodejs package that allows you to manage all the nodeschool workshops from  your terminal,
 you can search,install and remove workshop(s) with just one or two line of code in your terminal without going on the internet
