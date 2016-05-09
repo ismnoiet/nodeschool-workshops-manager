@@ -20,7 +20,7 @@ var data = {
     {name: 'intro to webGL', value: 'introtowebgl'},
     {name: 'async you', value: 'async-you'},
     {name: 'count to 6', value: 'count-to-6'},
-    {name: 'nodebot workshop', value: 'nodeboot-workshop'},
+    {name: 'nodebot workshop', value: 'nodebot-workshop'},
     {name: 'kick off koa', value: 'kick-off-koa'},
     {name: 'going native', value: 'goingnative'},
     {name: 'lololodash', value: 'lololodash'},
