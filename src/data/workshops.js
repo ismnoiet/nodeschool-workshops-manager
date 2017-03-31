@@ -1,4 +1,4 @@
-var data = {
+const data = {
   core: [
     {name: 'javascripting', value: 'javascripting'},
     {name: 'learnyounode', value: 'learnyounode'},
@@ -44,24 +44,6 @@ var data = {
   ]
 }
 
-function getAll () {
-  return data.core.concat(data.electives)
-}
-
-function getNames () {
-  return getAll().map(function (item) {
-    return item.name
-  })
-}
-
-function getInstallCommands () {
-  return getAll().map(function (item) {
-    return item.value
-  })
-}
-
-module.exports = {
-  getAll: getAll,
-  getNames: getNames,
-  getInstallCommands: getInstallCommands
-}
+export const getAll = () => data.core.concat(data.electives)
+export const getNames = () => getAll().map((item) => item.name)
+export const getInstallCommands = () => getAll().map((item) => item.value)
