@@ -1,12 +1,16 @@
 {
   "name": "nodeschool-workshops",
-  "version": "1.0.0",
-  "description": "Install,Remove and Search for  nodeschool workshops without leaving the Terminal ",
+  "version": "1.1.0",
+  "description": "Install,Remove and Search for  nodeschool workshops without leaving the Terminal",
   "scripts": {
-    "test": "standard",
-    "prepublish":"standard-format -w bin/nsworkshops data/workshops.js check-npm.js"
+    "test": "npm run lint",
+    "clean": "rm -rf ./dist",
+    "6to5": "./node_modules/.bin/babel ./src --out-dir ./dist",
+    "lint": "./node_modules/.bin/standard --fix \"src/**/*.js\" ",
+    "build": "concurrently \"npm run clean\" \"npm run 6to5\" ",
+    "prepublish": "concurrently \"npm run clean\" \"npm run lint\" \"npm run 6to5\""
   },
-  "author": "ham ism <ismnoiet@gmail.com>",
+  "author": "ismnoiet <ismnoiet@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git://github.com/ismnoiet/nodeschool-workshops-manager.git"
@@ -17,7 +21,7 @@
   "license": "ISC",
   "preferGlobal": true,
   "bin": {
-    "nsworkshops": "./bin/nsworkshops"
+    "nsworkshops": "./dist/nsworkshops.js"
   },
   "dependencies": {
     "commander": "^2.9.0",
@@ -32,6 +36,10 @@
     "nodeschool-manager"
   ],
   "devDependencies": {
-    "standard": "^5.4.1"
+    "babel": "^6.23.0",
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "concurrently": "^3.4.0",
+    "standard": "9.0.1"
   }
 }
